@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#24152f">
+<meta property="og:title" content="A little birthday surprise for Shrusti ✨">
+<meta property="og:description" content="A small note for a wonderful friend.">
+<title>For Shrusti ✨</title>
+<style>
+:root{--ink:#fff8f0;--muted:#e8d8e8;--pink:#ff9fc8;--gold:#ffd98a}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Georgia,'Times New Roman',serif;background:radial-gradient(ellipse at 20% 15%,#663b70 0,transparent 38%),radial-gradient(ellipse at 85% 75%,#56375e 0,transparent 38%),linear-gradient(145deg,#171225,#30203d 55%,#171225);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.42;background-image:radial-gradient(2px 2px at 20% 30%,white 50%,transparent 60%),radial-gradient(1px 1px at 70% 20%,white 50%,transparent 60%),radial-gradient(2px 2px at 85% 65%,white 50%,transparent 60%),radial-gradient(1px 1px at 40% 80%,white 50%,transparent 60%);background-size:190px 190px}
+main{position:relative;z-index:1;max-width:760px;margin:auto;padding:28px 20px 70px;text-align:center}
+.tag{letter-spacing:.24em;text-transform:uppercase;font:11px Arial,sans-serif;color:#f4c6dc;margin:24px 0 18px}
+h1{font-size:clamp(48px,12vw,88px);font-weight:400;line-height:.98;margin:10px 0;color:#ffe8f1;text-shadow:0 5px 35px #ff8fc455}
+h1 span{display:block;font-style:italic;color:var(--pink)}
+.lead{font-size:clamp(17px,4vw,21px);line-height:1.7;color:var(--muted);max-width:570px;margin:22px auto}
+button{border:1px solid #ffd5e8;background:linear-gradient(120deg,#f8a6ca,#f4c9a0);color:#3a2138;padding:15px 25px;border-radius:999px;font-weight:bold;font-size:15px;cursor:pointer;box-shadow:0 8px 28px #0004;transition:.25s}
+button:hover{transform:translateY(-3px);box-shadow:0 12px 32px #ff9fc844}
+#surprise{display:none;animation:rise .9s ease both}
+#surprise.show{display:block}
+.card{margin:35px auto 0;padding:clamp(24px,6vw,44px);max-width:610px;border:1px solid #ffffff35;border-radius:26px;background:linear-gradient(145deg,#ffffff13,#ffffff08);box-shadow:0 20px 70px #09061166;backdrop-filter:blur(8px)}
+.flower{font-size:42px;letter-spacing:8px;margin:8px 0 22px}
+.message{font-size:clamp(18px,4.3vw,22px);line-height:1.9;color:#fff3f8}
+.signature{font-size:18px;color:var(--gold);font-style:italic;margin-top:24px}
+.date{display:inline-block;margin-top:24px;padding:10px 17px;border:1px solid #ffffff40;border-radius:30px;color:#ffe3b5;font:12px Arial,sans-serif;letter-spacing:.12em}
+footer{margin-top:48px;color:#cdbbd0;font:12px Arial,sans-serif;letter-spacing:.08em}
+.heart{display:inline-block;color:#ff9fc8;animation:pulse 1.4s infinite}
+.spark{position:fixed;z-index:2;pointer-events:none;animation:fall 3.5s linear forwards}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{50%{transform:scale(1.3)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(500deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="tag">a little note, just for you</div>
+  <div style="font-size:42px" aria-hidden="true">✦</div>
+  <h1>Hey, <span>Shrusti</span></h1>
+  <p class="lead">Some people make ordinary days feel a little brighter. Today, this little corner of the internet is just for celebrating one of them.</p>
+  <button id="openBtn" type="button">Open your birthday surprise ✨</button>
+
+  <section id="surprise" aria-live="polite">
+    <div class="card">
+      <div class="flower" aria-hidden="true">🌷 ✨ 🌸</div>
+      <div class="message">
+        <p><strong>Happy Birthday, Shrusti!</strong> 🎂</p>
+        <p>Wishing you a day filled with genuine smiles, lovely surprises, and all the little things that make you happy.</p>
+        <p>May the year ahead bring you new opportunities, beautiful memories, confidence to chase your dreams, and countless reasons to be proud of yourself.</p>
+        <p>Keep being your kind, wonderful self. The world is better with people like you in it.</p>
+        <p>Have an absolutely lovely birthday and an even lovelier year ahead! 💐</p>
+      </div>
+      <div class="signature">With warm wishes, from a friend <span class="heart">♥</span></div>
+      <div class="date">16 DECEMBER · YOUR DAY</div>
+    </div>
+  </section>
+  <footer>MADE WITH A LITTLE EXTRA THOUGHT ✦</footer>
+</main>
+<script>
+const btn=document.getElementById('openBtn'), surprise=document.getElementById('surprise');
+btn.addEventListener('click',()=>{
+  surprise.classList.add('show');
+  btn.textContent='A little more happiness for you ✨';
+  btn.disabled=true;
+  for(let i=0;i<42;i++){
+    const s=document.createElement('span');s.className='spark';
+    s.textContent=['✦','✧','♥','✿'][Math.floor(Math.random()*4)];
+    s.style.left=Math.random()*100+'vw';s.style.top=(-10-Math.random()*30)+'px';
+    s.style.fontSize=(12+Math.random()*17)+'px';s.style.color=['#ffd98a','#ff9fc8','#fff1fa'][i%3];
+    s.style.animationDelay=(Math.random()*.9)+'s';document.body.appendChild(s);
+    setTimeout(()=>s.remove(),4800);
+  }
+  surprise.scrollIntoView({behavior:'smooth',block:'start'});
+});
+</script>
+</body>
+</html>
